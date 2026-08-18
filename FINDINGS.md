@@ -12,7 +12,16 @@ phase 1 is in progress.
 
 ## Business
 
-*(pending phase 2)*
+### B1 (preliminary). Most-rated and best-rated are different questions
+
+From the first 20 rows of the movie dimension table
+([sql/01_worksheet.sql](sql/01_worksheet.sql), logged query): Forrest Gump
+leads the catalog on rating count (81,491) by nine ratings over Shawshank
+(81,482), while Shawshank leads the same list on average (4.41 vs 4.05).
+Any "top movies" claim must therefore name its metric before it names a movie.
+
+**Status: preliminary.** Recorded before phase 1 completed, top-20 only, no
+floors applied; worksheet C2 upgrades or amends it.
 
 ## Limitations
 

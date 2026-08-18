@@ -59,3 +59,32 @@
 --    functions; that is the next syntax stop after this session.
 
 -- Findings and answers get appended below, with the query that earned them.
+
+
+-- ============================================================================
+-- Logged 2026-08-18 · the movie dimension table: all tables mashed at movie
+-- grain. Aggregate-first, every join one-to-one LEFT, 62,423 rows out.
+-- (The naive row-grain six-way join computes to 12.3 TRILLION rows; the
+-- worst single movie alone contributes 479 billion. Grain matching is not
+-- style, it is the difference between 358ms and never.)
+-- ============================================================================
+WITH r AS (SELECT movie_id, count(*) AS n_ratings, round(avg(rating), 2) AS avg_rating
+           FROM ml.ratings GROUP BY movie_id),
+     t AS (SELECT movie_id, count(*) AS n_tags FROM ml.tags GROUP BY movie_id),
+     g AS (SELECT movie_id, count(*) AS n_genome FROM ml.genome_scores GROUP BY movie_id)
+SELECT m.movie_id, m.title, m.genres, l.imdb_id,
+       coalesce(r.n_ratings, 0) AS n_ratings, r.avg_rating,
+       coalesce(t.n_tags, 0)    AS n_tags,
+       coalesce(g.n_genome, 0)  AS n_genome
+FROM ml.movies m
+LEFT JOIN ml.links l USING (movie_id)
+LEFT JOIN r USING (movie_id)
+LEFT JOIN t USING (movie_id)
+LEFT JOIN g USING (movie_id)
+ORDER BY n_ratings DESC
+LIMIT 20;
+-- Observation logged from the first 20 rows: Forrest Gump leads on COUNT
+-- (81,491, nine ahead of Shawshank's 81,482) while Shawshank leads the top
+-- list on AVERAGE (4.41 vs 4.05). Most-rated and best-rated are different
+-- questions with different winners. Preliminary: recorded before the phase-1
+-- audit; C2 makes it rigorous (floors, full list, not just the top 20).
