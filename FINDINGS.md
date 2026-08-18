@@ -45,19 +45,36 @@ Consequences:
   users between January 09, 1995 and November 21, 2019"); the founders' paper
   says otherwise. The receipt beats the summary.
 
-**Open anomaly (Q2a):** the paper says the imported users "could not be
-associated with our own." That predicts **zero** user ids with ratings on
-both sides of the seam. The count is **506**. Either some accounts were
-linkable after all, some pre-seam ratings are early-native MovieLens activity
-mixed into the dead data, or the seam boundary is fuzzier than one cut date.
-Unresolved; the 506 deserve their own look.
+**Q2a (resolved as mechanical):** the paper says the imported users "could
+not be associated with our own," predicting zero user ids with ratings on
+both sides of the seam. The count is 506, but their endings are coordinated,
+not organic: **475 of 506 (94%) have their last rating on 1998-05-22**, and
+502 of 506 finish within May 22 to June 7, 1998. Humans do not quit in
+unison; batch jobs do. The spanning is consistent with an undocumented
+migration or import event ending 1998-05-22, not with people using both
+platforms under one id. The paper's claim survives in spirit, and the
+dataset gains a third timestamp scar (1995 second, 1997 seam, 1998 batch
+termination).
 
-**Open hypothesis (Q2b):** EachMovie collected ratings on a 0-1 scale in 0.2
-steps, six values (from memory, unverified against EachMovie documentation).
-This extract's pre-seam era shows exactly five values (1-5). If the import
-remapped six values onto five, pre-1997 ratings were born on a different
-ruler and transcribed. Testable: era-split rating distributions should show
-a remapping dent. Not yet run.
+**Q2b (supported by fingerprint):** era-split distributions over the same
+five values disagree in a mechanically specific way:
+
+| rating | EachMovie era | native whole-star era (1997-09 to 2003-02) |
+|--:|--:|--:|
+| 1 | 3.8% | 5.8% |
+| 2 | 5.9% | 11.2% |
+| 3 | **40.8%** | 26.5% |
+| 4 | 29.6% | **34.7%** |
+| 5 | 19.9% | 21.9% |
+
+The imported era's mode is 3 with a 14-point single-bin spike. That is the
+exact signature of the natural affine conversion from EachMovie's 0-1
+six-value scale (0.2 steps; from memory, externally unverified) to stars:
+`stars = 1 + 4*score` sends both 0.4 and 0.6 to 3 under rounding, collapsing
+two source bins into the middle star. Population drift can lean a
+distribution; it struggles to spike one interior value by 14 points while
+the neighbors stay ordinary. External verification of the EachMovie scale
+would seal this.
 
 ### Q3. The rating instrument changed mid-stream on 2003-02-18
 
@@ -88,6 +105,16 @@ disagreement; they do not presume which side drifted.
   zero-rating movies carry tags; contract violations: 0.
 - **"One rating of one movie by one user": exactly true.** No duplicate
   (user_id, movie_id) pair in 25,000,095 rows.
+- **movie_id unique in `movies` and `links`**: 62,423 = 62,423 in both.
+- **All ~98 title+year twins are distinct films.** A self-join on title,
+  adjudicated via `links`: every pair carries different imdb ids, so the
+  catalog holds no order-1028-style duplicate and per-movie metrics are safe
+  from rating fragmentation. (Dracula (1931) resolves to imdb 0021814 and
+  0021815: the English- and Spanish-language versions shot on the same sets.)
+  Caveat: exact-string title matching; variant spellings would evade it.
+
+**Phase 1 declared dry, 2026-08-18.** All sweeps and contract checks
+complete; remaining threads are investigation, not audit.
 
 ## Business
 
@@ -120,10 +147,8 @@ self-selected movies (see L1, L2).
 
 ## Open threads
 
-- Phase-1 closers: movie_id uniqueness in `movies` and `links`; duplicate
-  title+year pairs (the README itself warns "errors and inconsistencies may
-  exist in these titles").
-- Q2a: who are the 506 seam-spanning users?
-- Q2b: the remap fingerprint (era-split rating distribution).
+- External verification of EachMovie's rating scale (seals Q2b).
+- What happened on 1998-05-22 (Q2a's batch event; likely needs GroupLens
+  history, not queries).
 - The Oct-Dec 1999 wall (34k -> 310k -> 400k/month): an event, unexplained.
 - The 2015-2017 resurgence: same question, 16 years later.
