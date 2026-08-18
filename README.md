@@ -26,6 +26,7 @@ receipts and a stakeholder report, same two registers as last time.
 | [sql/02_sweeps.sql](sql/02_sweeps.sql) | Phase-1 sweeps with their actual outputs |
 | [sql/03_contract_checks.sql](sql/03_contract_checks.sql) | The README's claims, checked; two held, one stale |
 | [sql/04_seams_and_eras.sql](sql/04_seams_and_eras.sql) | The 1997 seam, the 1998 batch scar, the remap fingerprint, the 2003 switch |
+| [sql/05_analysis.sql](sql/05_analysis.sql) | Phase 2: rater buckets, both genre grains, the flattery staircase |
 | [setup.py](setup.py) | One command: download the corpus, import to DuckDB |
 | [REPORT.md](REPORT.md) | The audit report, written for humans: five sentences up top, receipts below |
 | [report.html](report.html) | The same report as a presentable page: annotated 25-year timeline, the flattery staircase, dark mode |
