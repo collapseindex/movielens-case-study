@@ -1,5 +1,6 @@
 # MovieLens 25M: Audit Report
 
+**Analyst:** [Alex Kwon](https://github.com/collapseindex)
 **What this is:** an end-to-end analyst audit of MovieLens 25M, one of the
 most-used public datasets in the world (25,000,095 movie ratings, 1995-2019).
 **Full evidence:** [FINDINGS.md](FINDINGS.md) · runnable queries in [sql/](sql/)

@@ -1,5 +1,7 @@
 # MovieLens Case Study
 
+*A case study by [Alex Kwon](https://github.com/collapseindex).*
+
 **Status: complete.** Phases 1 and 2 dry, report delivered. Second analyst case study, transferring the
 methodology proven on the [e-commerce case](https://github.com/collapseindex/ecommerce-case-study)
 to data at real scale: **25,000,095 ratings** across 62,423 movies from
