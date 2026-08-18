@@ -1,6 +1,6 @@
 # MovieLens Case Study
 
-**Status: in progress (phase 1).** Second analyst case study, transferring the
+**Status: in progress (phase 1 complete and dry; phase 2 underway).** Second analyst case study, transferring the
 methodology proven on the [e-commerce case](https://github.com/collapseindex/ecommerce-case-study)
 to data at real scale: **25,000,095 ratings** across 62,423 movies from
 MovieLens 25M, the canonical public recommender corpus (F. Maxwell Harper and
@@ -22,7 +22,10 @@ receipts and a stakeholder report, same two registers as last time.
 | file | what it is |
 |---|---|
 | [FINDINGS.md](FINDINGS.md) | Findings with row ids and recomputations, appended as earned |
-| [sql/01_worksheet.sql](sql/01_worksheet.sql) | The working document: sweeps, groups, joins, no answers yet |
+| [sql/01_worksheet.sql](sql/01_worksheet.sql) | The working document: the questions, plus queries logged as earned |
+| [sql/02_sweeps.sql](sql/02_sweeps.sql) | Phase-1 sweeps with their actual outputs |
+| [sql/03_contract_checks.sql](sql/03_contract_checks.sql) | The README's claims, checked; two held, one stale |
+| [sql/04_seams_and_eras.sql](sql/04_seams_and_eras.sql) | The 1997 seam, the 1998 batch scar, the remap fingerprint, the 2003 switch |
 | [setup.py](setup.py) | One command: download the corpus, import to DuckDB |
 | REPORT.md | *(arrives when the findings do)* |
 
