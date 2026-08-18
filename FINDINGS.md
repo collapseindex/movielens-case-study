@@ -164,7 +164,16 @@ Documentary 3.659, War 3.551 on top; Comedy 3.194, Action 3.158 low;
 **Horror 2.967, the only genre under 3**. Niche genres are watched by their
 own fans; mass genres by everyone. Note: IMAX appears as a genre here, a
 format contaminating a taxonomy, which is finding Q4 visibly reaching into
-an analysis. Ratings-weighted grain (A) not yet run.
+an analysis.
+
+Grain A (ratings-weighted) run for comparison: **every genre rates higher**
+(Crime +0.32, Children +0.35), the popularity-quality correlation made
+visible; grain A is the genre as experienced (its hits), grain B the genre
+as a catalog (its tail). Crime jumps 11th to 4th between grains;
+Documentary's gap is 0.046, the smallest on the board, its obscure titles
+rating like its famous ones. Genre labels themselves have provenance eras
+(Harper & Konstan 2.2.5: admin-curated, then community-edited from 2004,
+then TMDB-imported under v4).
 
 ### B5 (bounded observation). Popular-but-untagged movies rate lower
 
@@ -181,8 +190,16 @@ per-movie reception drift across eras, a tenth to a quarter star. The
 mechanism explains who escapes: the six-to-five remap collapsed EachMovie's
 middle values into 3 (Q2b), but heavyweights live in the right tail, which
 mapped cleanly to 4 and 5. **The instrument distortion taxes mediocre
-movies and spares beloved ones.** Checkable extension: era-splits on
-mid-tier titles.
+movies and spares beloved ones.** Tested on 822 movies with 200+ ratings
+in each whole-star era, banded by native-era average: the shift is a clean
+monotonic gradient, +0.81 stars at the 1.5 band, +0.66 at 2.0, fading to
+-0.14 at 4.5. Amendment: the instrument did not tax the middle, it
+**flattered the despised**; bad movies looked nearly a star more mediocre
+under EachMovie. Mechanisms honestly tied: the remap's bottom-value
+treatment, and selection (1996 raters saw these films as new releases via
+their intended audiences; later raters as old bad movies). Caveat: the
+extreme bands are small (n=3 and n=29); the monotonic gradient across all
+seven bands is what carries the finding.
 
 ## Limitations
 
@@ -203,8 +220,6 @@ mid-tier titles.
 - What happened on 1998-05-22 (Q2a's batch event). Corroborating whiff:
   Harper & Konstan Fig 2 notes their own log data before July 1998 is
   missing, so mid-1998 held some infrastructure transition.
-- The regressive-tax refinement (B6): era-splits on mid-tier movies.
-- C4 grain A (ratings-weighted genre averages) for the grain comparison.
 - ~~The Oct-Dec 1999 wall~~ RESOLVED: mass-media wave, November 1999 per
   Table I of Harper & Konstan (Gladwell in the New Yorker, ABC Nightline,
   Roger Ebert). An exogenous press shock, visible as a 10x volume wall.
