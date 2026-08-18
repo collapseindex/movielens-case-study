@@ -53,7 +53,7 @@
 --        row. (questions.md #6, at a scale where getting it wrong is not a
 --        wrong number but a hung query.)
 
--- D. Patterns you just unlocked, for the README checklist when they feel
+-- D. Patterns you just unlocked, for the sql-notes pattern list when they feel
 --    automatic: filter-and-aggregate, join at the right grain then aggregate,
 --    anti-join. Top-N per group (best movie PER genre) needs window
 --    functions; that is the next syntax stop after this session.
