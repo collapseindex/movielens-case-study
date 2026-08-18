@@ -145,6 +145,43 @@ The scale's midpoint is not the distribution's center. Mechanism note:
 people rate movies they chose to watch, so this measures opinions about
 self-selected movies (see L1, L2).
 
+### B3. Heavy raters are harsher, and they own the average
+
+User-volume buckets (populations sum to 162,541; ratings to 25,000,095):
+20-49 ratings: 3.713 | 50-199: 3.725 | 200-999: 3.545 | 1000+: **3.259**.
+Nearly half a star between casual and heavy. Concentration: the top bucket
+is 1.6% of users and 17% of all ratings; the top two buckets are 20% of
+users and 64% of ratings, so pooled averages mostly express the harshest
+minority's taste. Mechanism unresolved (selection vs calibration drift);
+descriptive only.
+
+### B4. The genre hierarchy is a selection artifact wearing a ranking
+
+Movie-grain averages (each movie one vote, floor n>=100): Film-Noir 3.743,
+Documentary 3.659, War 3.551 on top; Comedy 3.194, Action 3.158 low;
+**Horror 2.967, the only genre under 3**. Niche genres are watched by their
+own fans; mass genres by everyone. Note: IMAX appears as a genre here, a
+format contaminating a taxonomy, which is finding Q4 visibly reaching into
+an analysis. Ratings-weighted grain (A) not yet run.
+
+### B5 (bounded observation). Popular-but-untagged movies rate lower
+
+Tagged (n=10,263 movies at floor 100): 3.306. Untagged (n=63): 2.981.
+The untagged club is tiny and the popularity confound is pre-committed:
+description, not cause.
+
+### B6. No uniform era tax on heavyweights; the distortion is regressive
+
+Prediction tested and refuted: the EachMovie regime does not drag top
+movies' averages toward 3 (Gump's EachMovie era is its highest, 4.12; Pulp
+Fiction's its lowest, 4.03, canonizing upward after). What exists is
+per-movie reception drift across eras, a tenth to a quarter star. The
+mechanism explains who escapes: the six-to-five remap collapsed EachMovie's
+middle values into 3 (Q2b), but heavyweights live in the right tail, which
+mapped cleanly to 4 and 5. **The instrument distortion taxes mediocre
+movies and spares beloved ones.** Checkable extension: era-splits on
+mid-tier titles.
+
 ## Limitations
 
 - **L1. The sample designs casual users out.** Per the README: random user
@@ -163,7 +200,7 @@ self-selected movies (see L1, L2).
 - External verification of EachMovie's rating scale (seals Q2b).
 - What happened on 1998-05-22 (Q2a's batch event; likely needs GroupLens
   history, not queries).
-- The era tax: do pre-1997 movies' averages differ by era of rating? (One
-  era-split query on a handful of old titles settles it.)
+- The regressive-tax refinement (B6): era-splits on mid-tier movies.
+- C4 grain A (ratings-weighted genre averages) for the grain comparison.
 - The Oct-Dec 1999 wall (34k -> 310k -> 400k/month): an event, unexplained.
 - The 2015-2017 resurgence: same question, 16 years later.
