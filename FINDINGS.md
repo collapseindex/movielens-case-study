@@ -118,12 +118,25 @@ complete; remaining threads are investigation, not audit.
 
 ## Business
 
-### B1 (preliminary). Most-rated and best-rated are different questions
+### B1 (confirmed). "Top movie" is a function of metric AND parameter
 
-From the first 20 rows of the movie dimension table: Forrest Gump leads on
-count (81,491, nine ahead of Shawshank's 81,482); Shawshank leads the same
-list on average (4.41 vs 4.05). Any "top movies" claim must name its metric.
-**Status: preliminary** (top-20 only, no floors; C2 upgrades or kills it).
+Most-rated: Forrest Gump (81,491, nine ahead of Shawshank). Best-rated is
+not one answer but a floor-sensitive family of answers:
+
+| min ratings | winner | avg | n |
+|--:|---|--:|--:|
+| none | 820 movies tied at 5.0 | 5.0 | 1 each |
+| 1,000 | Planet Earth II (television) | 4.48 | 1,124 |
+| 10,000 | The Shawshank Redemption (1994) | 4.41 | 81,482 |
+
+855 movies carry a perfect 5.0 average; 820 of them have exactly one rating.
+The floor is a published parameter, not a hidden one: the winner changes at
+every tier, so the report shows the sensitivity instead of picking a floor
+silently. Two scope notes: MovieLens catalogs television (Planet Earth I/II,
+Band of Brothers), so "best movie" needs a stated scope at low floors, and
+cross-era average comparisons carry the instrument caveat (Q2b/Q3): movies
+old enough to have lived through the EachMovie 3-spike collected ratings
+under a regime that dragged averages toward 3.
 
 ### B2 (observation). Ratings cluster generously
 
@@ -150,5 +163,7 @@ self-selected movies (see L1, L2).
 - External verification of EachMovie's rating scale (seals Q2b).
 - What happened on 1998-05-22 (Q2a's batch event; likely needs GroupLens
   history, not queries).
+- The era tax: do pre-1997 movies' averages differ by era of rating? (One
+  era-split query on a handful of old titles settles it.)
 - The Oct-Dec 1999 wall (34k -> 310k -> 400k/month): an event, unexplained.
 - The 2015-2017 resurgence: same question, 16 years later.

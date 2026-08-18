@@ -88,3 +88,17 @@ LIMIT 20;
 -- list on AVERAGE (4.41 vs 4.05). Most-rated and best-rated are different
 -- questions with different winners. Preliminary: recorded before the phase-1
 -- audit; C2 makes it rigorous (floors, full list, not just the top 20).
+
+
+-- ============================================================================
+-- Logged 2026-08-18 · C2: best-rated is a function of the floor (finding B1)
+-- ============================================================================
+-- 855 movies average a perfect 5.0; 820 of them have exactly one rating.
+SELECT count(*) AS perfect_movies,
+       sum(CASE WHEN n_ratings = 1 THEN 1 ELSE 0 END) AS of_which_n1
+FROM movie_dim WHERE avg_rating = 5.0;
+
+-- Winner by floor: none -> 820-way tie at 5.0 | 1,000 -> Planet Earth II
+-- (4.48, n=1,124, television) | 10,000 -> Shawshank (4.41, n=81,482).
+SELECT title, avg_rating, n_ratings FROM movie_dim
+WHERE n_ratings >= 10000 ORDER BY avg_rating DESC LIMIT 10;
