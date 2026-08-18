@@ -71,6 +71,24 @@ so "lowest possible rating" means different things by era (see L2); with Q2,
 the file is **three instruments in sequence** (EachMovie remapped, MovieLens
 whole-star, MovieLens half-star), sold by the README as one series.
 
+### Q4. The README's genre vocabulary is stale in both directions
+
+The README enumerates the complete legal genre list. Unnesting the actual
+`genres` column yields 20 distinct values, and the diff runs both ways:
+**`IMAX` exists in the data but not in the documented list**, and the doc's
+**`Children's` appears in the data as `Children`** (no apostrophe-s), an
+inheritance from an older generation of the dataset. Minor severity, real
+lesson: this is the e-commerce `west` finding mirrored, with the
+documentation stale and the data consistent. Contract checks adjudicate
+disagreement; they do not presume which side drifted.
+
+### Checks that held (logged because a pass has to mean something)
+
+- **"Every movie has at least one rating or tag": exactly true.** All 3,376
+  zero-rating movies carry tags; contract violations: 0.
+- **"One rating of one movie by one user": exactly true.** No duplicate
+  (user_id, movie_id) pair in 25,000,095 rows.
+
 ## Business
 
 ### B1 (preliminary). Most-rated and best-rated are different questions
@@ -102,9 +120,9 @@ self-selected movies (see L1, L2).
 
 ## Open threads
 
-- README contract checks: every zero-rating movie has a tag (the "at least
-  one rating or tag" promise vs our 3,376); genre vocabulary diff (doc list
-  vs unnested data, both directions); one-row-per-(user,movie) uniqueness.
+- Phase-1 closers: movie_id uniqueness in `movies` and `links`; duplicate
+  title+year pairs (the README itself warns "errors and inconsistencies may
+  exist in these titles").
 - Q2a: who are the 506 seam-spanning users?
 - Q2b: the remap fingerprint (era-split rating distribution).
 - The Oct-Dec 1999 wall (34k -> 310k -> 400k/month): an event, unexplained.
