@@ -1,0 +1,42 @@
+# MovieLens Case Study
+
+**Status: in progress (phase 1).** Second analyst case study, transferring the
+methodology proven on the [e-commerce case](https://github.com/collapseindex/ecommerce-case-study)
+to data at real scale: **25,000,095 ratings** across 62,423 movies from
+MovieLens 25M, the canonical public recommender corpus (F. Maxwell Harper and
+Joseph A. Konstan, ACM TiiS 2015).
+
+The scale is the point. The e-commerce case had 35 rows and three of five
+defects fell to reading them; at 25M rows eyeballing is dead, and the sweeps,
+grain decisions, and join discipline are the only eyes there are.
+
+## The engagement
+
+You are the analyst at a streaming service. Product asks: what does our
+catalog's rating behavior actually look like, where is the dead weight, and
+what changed over the platform's 25-year history? Deliverable: findings with
+receipts and a stakeholder report, same two registers as last time.
+
+## Structure
+
+| file | what it is |
+|---|---|
+| [FINDINGS.md](FINDINGS.md) | Findings with row ids and recomputations, appended as earned |
+| [sql/01_worksheet.sql](sql/01_worksheet.sql) | The working document: sweeps, groups, joins, no answers yet |
+| [setup.py](setup.py) | One command: download the corpus, import to DuckDB |
+| REPORT.md | *(arrives when the findings do)* |
+
+## Reproduce
+
+```bash
+pip install duckdb
+python setup.py     # fetches ml-25m.zip (~262MB), builds movielens.duckdb
+```
+
+Tables: `ratings` (user_id, movie_id, rating, rated_at), `movies` (movie_id,
+title, genres), `tags`, `links`, `genome_tags`, `genome_scores`. The data
+itself is not committed (262MB, and GroupLens asks that the canonical download
+be the source); `setup.py` re-derives everything.
+
+One operating rule inherited from day one: **never bare `SELECT *` on
+ratings** in a UI. 25M rows into a browser tab is a crash, not a query.

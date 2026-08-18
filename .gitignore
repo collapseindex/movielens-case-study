@@ -1,0 +1,6 @@
+*.duckdb
+*.wal
+ui.db
+__pycache__/
+# the corpus: 262MB zip, re-derivable via setup.py
+data/
