@@ -82,6 +82,8 @@ Distinct rating values per year: 5 (whole stars) through 2002, 10 from 2003
 on. The **first half-star in the dataset is stamped 2003-02-18 13:48:10**: a
 feature launch, precise to the second, recovered from timestamps alone.
 
+Confirmed by Harper & Konstan 2015 (2.2.2): the v3 launch, February 2003,
+half-stars as "the most-requested feature in a user survey."
 Consequences: any over-time average crosses an instrument change (finer
 expressiveness, same opinions); the expressible floor moved from 1.0 to 0.5,
 so "lowest possible rating" means different things by era (see L2); with Q2,
@@ -198,9 +200,17 @@ mid-tier titles.
 ## Open threads
 
 - External verification of EachMovie's rating scale (seals Q2b).
-- What happened on 1998-05-22 (Q2a's batch event; likely needs GroupLens
-  history, not queries).
+- What happened on 1998-05-22 (Q2a's batch event). Corroborating whiff:
+  Harper & Konstan Fig 2 notes their own log data before July 1998 is
+  missing, so mid-1998 held some infrastructure transition.
 - The regressive-tax refinement (B6): era-splits on mid-tier movies.
 - C4 grain A (ratings-weighted genre averages) for the grain comparison.
-- The Oct-Dec 1999 wall (34k -> 310k -> 400k/month): an event, unexplained.
-- The 2015-2017 resurgence: same question, 16 years later.
+- ~~The Oct-Dec 1999 wall~~ RESOLVED: mass-media wave, November 1999 per
+  Table I of Harper & Konstan (Gladwell in the New Yorker, ABC Nightline,
+  Roger Ebert). An exogenous press shock, visible as a 10x volume wall.
+- ~~The 2015-2017 resurgence~~ RESOLVED: the v4 relaunch (11/2014,
+  Table I) and its press wave.
+- The paper claims (2.2.2, Fig 4) the v4 ratings-widget change produced "no
+  visible global changes in ratings distributions." Checkable against this
+  extract: pre/post 11/2014 distributions. A contract check on a
+  peer-reviewed claim; not yet run.
