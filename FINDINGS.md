@@ -30,7 +30,9 @@ nothing, which is why it went unnoticed until counted). Volume resumes at
 
 The founders' own workshop paper (Konstan, Riedl, Borchers & Herlocker,
 "Recommender Systems: A GroupLens Perspective," AAAI Technical Report
-WS-98-08, 1998, pp. 60-64) names the mechanism: MovieLens **launched in the
+WS-98-08, 1998, pp. 60-64;
+[pdf](https://cdn.aaai.org/Workshops/1998/WS-98-08/WS98-08-016.pdf)) names
+the mechanism: MovieLens **launched in the
 summer of 1997**, seeded with **"over 2.8 million ratings from the earlier
 EachMovie recommender system"** received as anonymous users: **"dead data."**
 The pre-seam era in this extract is 1,966,631 ratings from 30,299 user ids,

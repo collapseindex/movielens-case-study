@@ -40,3 +40,16 @@ be the source); `setup.py` re-derives everything.
 
 One operating rule inherited from day one: **never bare `SELECT *` on
 ratings** in a UI. 25M rows into a browser tab is a crash, not a query.
+
+## References
+
+- F. Maxwell Harper and Joseph A. Konstan. 2015. *The MovieLens Datasets:
+  History and Context.* ACM TiiS 5(4).
+  <https://doi.org/10.1145/2827872> (the dataset's citation of record)
+- Joseph A. Konstan, John Riedl, Al Borchers, and Jonathan L. Herlocker.
+  1998. *Recommender Systems: A GroupLens Perspective.* AAAI Technical
+  Report WS-98-08, pp. 60-64.
+  <https://cdn.aaai.org/Workshops/1998/WS-98-08/WS98-08-016.pdf>
+  (primary source for the summer-1997 launch and the 2.8M-rating EachMovie
+  "dead data" seeding; the receipt behind finding Q2)
+- GroupLens dataset releases: <https://grouplens.org/datasets/movielens/>
