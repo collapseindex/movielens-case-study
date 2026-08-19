@@ -118,12 +118,31 @@
     background: var(--ink); color: var(--paper); font-size: .78rem;
     padding: .35rem .6rem; border-radius: 5px; max-width: 280px; }
   @media (prefers-reduced-motion: no-preference) { .tl-bar { transition: filter .12s ease; } }
+  .sitenav {
+    display: flex; flex-wrap: wrap; gap: .35rem 1rem; align-items: center;
+    font-size: .78rem; color: var(--ink-3); margin-bottom: 1.6rem;
+  }
+  .sitenav a { color: var(--ink-2); text-decoration: none; text-underline-offset: 2px; }
+  .sitenav a:hover { text-decoration: underline; }
+  .sitenav .sep { color: var(--grid); }
+  .frame { color: var(--ink-2); font-size: .92rem; margin-top: .55rem; max-width: 64ch; font-style: italic; }
+  .foot.contact { margin-top: 1rem; padding-top: .8rem; border-top: 0; }
 </style>
 
 <div class="page">
+  <nav class="sitenav" aria-label="Site">
+    <a href="https://collapseindex.org/">&larr; collapseindex.org</a>
+    <span class="sep">&middot;</span>
+    <a href="https://collapseindex.org/#case-studies">All case studies</a>
+    <span class="sep">&middot;</span>
+    <a href="mailto:ask@collapseindex.org">ask@collapseindex.org</a>
+  </nav>
   <header>
     <div class="eyebrow">Data analysis · MovieLens 25M case study</div>
     <h1>Three Rulers, One Dataset</h1>
+    <p class="frame">Same audit methodology as the
+      <a href="https://collapseindex.org/case-studies/ecommerce.html">e-commerce case</a>, five orders of
+      magnitude apart: 35 rows there, 25 million here.</p>
     <p class="kicker">An audit of 25,000,095 movie ratings, 1995&ndash;2019, by <b>Alex Kwon</b>. Verdict in one line:
       <b>the data is immaculate; the ruler moved.</b> Every structural promise the dataset makes
       holds exactly, and its 25-year timeline is three measuring instruments stitched together
@@ -275,6 +294,9 @@
     Harper &amp; Konstan 2015 (ACM TiiS) for the version history. Companion case:
     <a href="https://github.com/collapseindex/ecommerce-case-study">ecommerce-case-study</a>.
     Every figure independently recomputed before publication.</p>
+  <p class="foot contact">Alex Kwon &middot; <a href="mailto:ask@collapseindex.org">ask@collapseindex.org</a>
+    &middot; <a href="https://collapseindex.org/#case-studies">more case studies</a>
+    &middot; <a href="https://github.com/collapseindex">github.com/collapseindex</a></p>
 </div>
 
 <div id="tip" role="status"></div>
