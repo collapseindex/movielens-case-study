@@ -60,3 +60,12 @@ ratings** in a UI. 25M rows into a browser tab is a crash, not a query.
   (primary source for the summer-1997 launch and the 2.8M-rating EachMovie
   "dead data" seeding; the receipt behind finding Q2)
 - GroupLens dataset releases: <https://grouplens.org/datasets/movielens/>
+
+## License
+
+Code (SQL, scripts, the notebook) is **Apache-2.0** ([LICENSE](LICENSE)).
+The written reports and figures (REPORT.md, report.html, FINDINGS.md, this
+README) are **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**,
+the same license as my papers: reuse with attribution ("Three Rulers, One Dataset",
+Alex Kwon, github.com/collapseindex/movielens-case-study).
+

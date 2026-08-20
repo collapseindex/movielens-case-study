@@ -11,6 +11,9 @@ date-released: "2026-08-18"
 url: "https://collapseindex.org/#case-studies"
 repository-code: "https://github.com/collapseindex/movielens-case-study"
 type: software
+license:
+  - Apache-2.0
+  - CC-BY-4.0
 keywords:
   - data quality
   - data auditing
