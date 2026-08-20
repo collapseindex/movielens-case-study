@@ -171,6 +171,7 @@ resolved both volume walls. Full citations in the [README](README.md).
 
 > Kwon, A. (2026). Three Rulers, One Dataset: an audit of MovieLens 25M. https://github.com/collapseindex/movielens-case-study
 
+Disclosure: AI-assisted implementation; methodology and validation framework developed in prior research; every figure recomputed from raw data by the runnable code in this repository.
 License: this report is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/);
 the code in this repository is Apache-2.0.
 Machine-readable metadata: [CITATION.cff](CITATION.cff). All case studies:
