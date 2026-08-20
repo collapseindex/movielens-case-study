@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you reference this case study, please cite it as below."
+title: "Three Rulers, One Dataset: an audit of MovieLens 25M"
+abstract: "An end-to-end audit of MovieLens 25M (25,000,095 ratings, 1995-2019): every documented invariant holds exactly, and the 25-year series is three rating instruments stitched at undocumented seams."
+authors:
+  - family-names: "Kwon"
+    given-names: "Alex"
+    email: "ask@collapseindex.org"
+    website: "https://collapseindex.org"
+date-released: "2026-08-18"
+url: "https://collapseindex.org/#case-studies"
+repository-code: "https://github.com/collapseindex/movielens-case-study"
+type: software
+keywords:
+  - data quality
+  - data auditing
+  - case study

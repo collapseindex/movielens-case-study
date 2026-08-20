@@ -166,3 +166,11 @@ down before queries ran, and the ones that died are reported dead. Every number 
 Konstan, Riedl, Borchers & Herlocker 1998 (AAAI WS-98-08): the seed and
 launch receipts. Harper & Konstan 2015 (ACM TiiS): the version history that
 resolved both volume walls. Full citations in the [README](README.md).
+
+## Citing this work
+
+> Kwon, A. (2026). Three Rulers, One Dataset: an audit of MovieLens 25M. https://github.com/collapseindex/movielens-case-study
+
+Machine-readable metadata: [CITATION.cff](CITATION.cff). All case studies:
+[collapseindex.org/#case-studies](https://collapseindex.org/#case-studies) ·
+[github.com/collapseindex](https://github.com/collapseindex).
